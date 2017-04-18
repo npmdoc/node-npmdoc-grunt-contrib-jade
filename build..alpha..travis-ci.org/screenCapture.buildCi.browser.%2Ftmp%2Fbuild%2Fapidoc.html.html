@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/gruntjs/grunt-contrib-jade#readme"
-
-    >grunt-contrib-jade (v1.0.0)</a>
+    <a href="https://github.com/gruntjs/grunt-contrib-jade#readme">grunt-contrib-jade (v1.0.0)</a>
 </h1>
 <h4>Compile Jade templates</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.grunt-contrib-jade">module grunt-contrib-jade</a><ol>
 
@@ -86,8 +79,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">grunt-contrib-jade = function (grunt) {
-  var lib = require(&#x27;./lib/jade&#x27;);
-  var chalk = require(&#x27;chalk&#x27;);
+  var lib = require('./lib/jade');
+  var chalk = require('chalk');
 
   // content conversion for templates
   var defaultProcessContent = function(content) {
@@ -96,12 +89,12 @@
 
   // filename conversion for templates
   var defaultProcessName = function(name) {
-    return name.replace(&#x27;.jade&#x27;, &#x27;&#x27;);
+    return name.replace('.jade', '');
   };
 
-  grunt.registerMultiTask(&#x27;jade&#x27;, &#x27;Compile jade templates.&#x27;, function() {
+  grunt.registerMultiTask('jade', 'Compile jade templates.', function() {
     var options = this.options({
-      namespace: &#x27;JST&#x27;,
+      namespace: 'JST',
       separator: grunt.util.linefeed + grunt.util.linefeed,
       amd: false
     });
@@ -125,7 +118,7 @@
       f.src.filter(function(filepath) {
         // warn on and remove invalid source files (if nonull was set)
         if (!grunt.file.exists(filepath)) {
-          grunt.log.warn(&#x27;Source file &#x22;&#x27; + filepath + &#x27;&#x22; not found.&#x27;);
+          grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
         }
         return true;
@@ -138,8 +131,8 @@
         options.filename = filepath;
 
         try {
-          var jade = f.orig.jade = require(&#x27;jade&#x27;);
-          if (typeof data === &#x27;function&#x27;) {
+          var jade = f.orig.jade = require('jade');
+          if (typeof data === 'function') {
             // if data is function, bind to f.orig, passing f.dest and f.src
             f.orig.data = data.call(f.orig, f.dest, f.src);
           } else {
@@ -159,34 +152,34 @@
 
           // if configured for AMD and the namespace has been explicitly set
           // to false, the Jade template will be directly returned
-          if (options.client &#x26;&#x26; options.amd &#x26;&#x26; options.namespace === false) {
-            compiled = &#x27;return &#x27; + compiled;
+          if (options.client &amp;&amp; options.amd &amp;&amp; options.namespace === false) {
+            compiled = 'return ' + compiled;
           }
         } catch (e) {
           grunt.log.error(e);
-          grunt.fail.warn(&#x27;Jade failed to compile &#x22;&#x27; + filepath + &#x27;&#x22;.&#x27;);
+          grunt.fail.warn('Jade failed to compile "' + filepath + '".');
           return false;
         }
 
-        if (options.client &#x26;&#x26; options.namespace !== false) {
-          templates.push(nsInfo.namespace + &#x27;[&#x27; + JSON.stringify(filename) + &#x27;] = &#x27; + compiled + &#x27;;&#x27;);
+        if (options.client &amp;&amp; options.namespace !== false) {
+          templates.push(nsInfo.namespace + '[' + JSON.stringify(filename) + '] = ' + compiled + ';');
         } else {
           templates.push(compiled);
         }
       });
 
       var output = templates;
-      if (output.length &#x3c; 1) {
-        grunt.log.warn(&#x27;Destination not written because compiled files were empty.&#x27;);
+      if (output.length &lt; 1) {
+        grunt.log.warn('Destination not written because compiled files were empty.');
       } else {
-        if (options.client &#x26;&#x26; options.namespace !== false) {
+        if (options.client &amp;&amp; options.namespace !== false) {
           output.unshift(nsInfo.declaration);
 
           if (options.node) {
-            output.unshift(&#x27;var jade = jade || require(\&#x27;jade/lib/runtime\&#x27;);&#x27;);
+            output.unshift('var jade = jade || require(\'jade/lib/runtime\');');
 
-            var nodeExport = &#x27;if (typeof exports === \&#x27;object\&#x27; &#x26;&#x26; exports) {&#x27;;
-            nodeExport += &#x27;module.exports = &#x27; + nsInfo.namespace + &#x27;;}&#x27;;
+            var nodeExport = 'if (typeof exports === \'object\' &amp;&amp; exports) {';
+            nodeExport += 'module.exports = ' + nsInfo.namespace + ';}';
 
             output.push(nodeExport);
           }
@@ -194,13 +187,13 @@
 
         if (options.amd) {
           // wrap the file in an AMD define function
-          output.unshift(&#x27;define([\&#x27;jade\&#x27;], function(jade) { if(jade &#x26;&#x26; jade[\&#x27;runtime\&#x27;] !== undefined) { jade = jade.runtime; }&#x27;);
+          output.unshift('define([\'jade\'], function(jade) { if(jade &amp;&amp; jade[\'runtime\'] !== undefined) { jade = jade.runtime; }');
           if (options.namespace !== false) {
             // namespace has not been explicitly set to false;
             // the AMD wrapper will return the object containing the template
-            output.push(&#x27;return &#x27; + nsInfo.namespace + &#x27;;&#x27;);
+            output.push('return ' + nsInfo.namespace + ';');
           }
-          output.push(&#x27;});&#x27;);
+          output.push('});');
         }
 
         grunt.file.write(f.dest, output.join(grunt.util.normalize ...</pre></li>
@@ -216,3 +209,4 @@
     ]
 </div>
 </div>
+</body></html>
