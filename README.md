@@ -1,9 +1,14 @@
-# api documentation for  [grunt-contrib-jade (v1.0.0)](https://github.com/gruntjs/grunt-contrib-jade#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-jade.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-jade) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-jade.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-jade)
+# npmdoc-grunt-contrib-jade
+
+#### api documentation for  [grunt-contrib-jade (v1.0.0)](https://github.com/gruntjs/grunt-contrib-jade#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-jade.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-jade) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-jade.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-jade)
+
 #### Compile Jade templates
 
-[![NPM](https://nodei.co/npm/grunt-contrib-jade.png?downloads=true)](https://www.npmjs.com/package/grunt-contrib-jade)
+[![NPM](https://nodei.co/npm/grunt-contrib-jade.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/grunt-contrib-jade)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-contrib-jade/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-grunt-contrib-jade_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-contrib-jade/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-grunt-contrib-jade/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-grunt-contrib-jade/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-contrib-jade/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-contrib-jade/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-grunt-contrib-jade/build/screenCapture.npmPackageListing.svg)
 
@@ -91,33 +96,26 @@
     "main": "tasks/jade.js",
     "maintainers": [
         {
-            "name": "tkellen",
-            "email": "tyler@sleekcode.net"
+            "name": "tkellen"
         },
         {
-            "name": "cowboy",
-            "email": "cowboy@rj3.net"
+            "name": "cowboy"
         },
         {
-            "name": "shama",
-            "email": "kyle@dontkry.com"
+            "name": "shama"
         },
         {
-            "name": "vladikoff",
-            "email": "vlad@vladikoff.com"
+            "name": "vladikoff"
         },
         {
-            "name": "sindresorhus",
-            "email": "sindresorhus@gmail.com"
+            "name": "sindresorhus"
         },
         {
-            "name": "jmeas",
-            "email": "jellyes2@gmail.com"
+            "name": "jmeas"
         }
     ],
     "name": "grunt-contrib-jade",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/gruntjs/grunt-contrib-jade.git"
@@ -128,16 +126,6 @@
     "version": "1.0.0"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module grunt-contrib-jade](#apidoc.module.grunt-contrib-jade)
-
-
-
-# <a name="apidoc.module.grunt-contrib-jade"></a>[module grunt-contrib-jade](#apidoc.module.grunt-contrib-jade)
 
 
 
